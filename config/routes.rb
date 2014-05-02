@@ -3,7 +3,7 @@ NagiosProxy::Application.routes.draw do
   # -> config, create host, restart node
   # Host
   # -> crud
-
+  # To keep things simple I am using host_id = host_name, id = serive name.
   resources :hosts do
     resources :services
   end

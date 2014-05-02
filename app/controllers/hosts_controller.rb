@@ -24,6 +24,7 @@ class HostsController < ApplicationController
   end
 
   def destroy
-
+    File.delete "/usr/local/nagios/etc/objects/host_configs/#{params['id']}.cfg"
+    render :nothing => true, :status => 204
   end
 end

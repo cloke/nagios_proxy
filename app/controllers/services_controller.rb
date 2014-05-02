@@ -3,7 +3,8 @@ class ServicesController < ApplicationController
     # Seems like this should not be used as the info will be in the DB
     # Maybe implement just to have an option to compare nagios to db
     
-    services = @site.host_status( params[:host] )#.values
+    # Using host_id as that is how the route submits.
+    services = @site.host_status( params[:host_id] )#.values
 
     render json: { services: services }
 
@@ -11,17 +12,27 @@ class ServicesController < ApplicationController
 
   def create
     
-    case params[:name]
+    case params[:name].downcase
     when 'http'
-      write_http_service params[:host_name]
+      write_http_service params[:host_id]
     when 'ping'
-      write_ping_service params[:host_name]
+      write_ping_service params[:host_id]
     end
+    restart_process
     params
   end
 
   def show
-    @site.host_status params[:host_id]
+    # This currently returns all services. Need to figure out how to limit to one.
+    services = @site.host_status params[:host_id]
+    render json: { services: services }
+
+  end
+
+  def destroy
+    # File.delete "/usr/local/nagios/etc/objects/host_configs/#{params[:host_id]}_#{params[:id].downcase}_service.cfg"
+    restart_process
+    render :nothing => true, :status => 204
   end
 
   protected
@@ -45,7 +56,7 @@ class ServicesController < ApplicationController
         use                             generic-service         ; Name of service template to use
         host_name                       #{host_name}
         service_description             PING
-        check_command                   check_ping
+        check_command                   check_ping!100.0,20%!500.0,60%
         notifications_enabled           0
         }
     "
