@@ -4,20 +4,11 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.1'
 
 gem 'rails-api'
+# Not sure if this gem is worth-while. Might want to get rid of it.
 gem 'nagiosharder'
 
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano', :group => :development
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+# Use Capistrano for deployment
+gem 'capistrano', group: :development
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'#, '~> 2.0'
+# gem 'capistrano-bundler', '~> 1.1.2'
