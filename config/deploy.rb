@@ -1,14 +1,14 @@
 # config valid only for Capistrano 3.1
 # lock '3.1.0'
 
-set :application, 'knewp_proxy'
-set :repo_url, 'git@github.com:cloke/knewp_proxy.git'
+set :application, 'nagios_proxy'
+set :repo_url, 'git@github.com:cloke/nagios_proxy.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/rails/knewp_proxy'
+set :deploy_to, '/home/rails/nagios_proxy'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -40,6 +40,7 @@ set :rbenv_ruby, '2.1.0'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
+set :default_shell, '/bin/bash -l'
 
 namespace :deploy do
 

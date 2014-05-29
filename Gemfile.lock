@@ -39,9 +39,9 @@ GEM
     capistrano-rails (1.1.1)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
-    capistrano-rvm (0.1.1)
-      capistrano (~> 3.0)
-      sshkit (~> 1.2)
+    capistrano-rbenv (2.0.2)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     erubis (2.7.0)
     hashie (1.2.0)
     hike (1.2.3)
@@ -127,8 +127,9 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
+  capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1)
-  capistrano-rvm
+  capistrano-rbenv (~> 2.0)
   nagiosharder
   rails (~> 4.1)
   rails-api
