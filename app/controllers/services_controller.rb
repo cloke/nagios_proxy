@@ -10,11 +10,6 @@ class ServicesController < ApplicationController
 
   end
 
-  def create
-    
-  
-  end
-
   def show
     # This currently returns all services. Need to figure out how to limit to one.
     services = @site.host_status params[:host_id]
