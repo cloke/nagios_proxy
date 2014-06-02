@@ -1,12 +1,7 @@
-class HostsController < ApplicationController
-  def index
-    # Seems like this should not be used as the info will be in the DB
-    # Maybe implement just to have an option to compare nagios to db
-    render json: { host: @site.host_status( params[:host_id] ) }
+class Host
+  include Nagios
 
-  end
-
-  def create
+  def create params
     doc = "
       define host {
         use linux-server  ; Name of host template to use
@@ -19,11 +14,11 @@ class HostsController < ApplicationController
 
 
     File.open("/usr/local/nagios/etc/objects/host_configs/#{params['name']}.cfg", 'w') {|f| f.write(doc) }
-    restart_process
+    restart
     params
   end
 
-  def destroy
+  def destroy name
     File.delete "/usr/local/nagios/etc/objects/host_configs/#{params['id']}.cfg"
     render :nothing => true, :status => 204
   end

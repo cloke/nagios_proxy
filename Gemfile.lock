@@ -58,6 +58,7 @@ GEM
     minitest (5.3.4)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    mysql2 (0.3.15)
     nagiosharder (0.5.0)
       activesupport
       hashie (~> 1.2.0)
@@ -130,6 +131,7 @@ DEPENDENCIES
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1)
   capistrano-rbenv (~> 2.0)
+  mysql2
   nagiosharder
   rails (~> 4.1)
   rails-api

@@ -4,9 +4,9 @@ NagiosProxy::Application.routes.draw do
   # Host
   # -> crud
   # To keep things simple I am using host_id = host_name, id = serive name.
-  resources :hosts do
-    resources :services
-  end
+  # resources :hosts do
+  #   resources :services
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

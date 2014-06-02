@@ -12,14 +12,7 @@ class ServicesController < ApplicationController
 
   def create
     
-    case params[:name].downcase
-    when 'http'
-      write_http_service params[:host_id]
-    when 'ping'
-      write_ping_service params[:host_id]
-    end
-    restart_process
-    params
+  
   end
 
   def show

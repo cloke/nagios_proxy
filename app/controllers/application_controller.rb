@@ -12,13 +12,7 @@ class ApplicationController < ActionController::API
     @site = NagiosHarder::Site.new(@cgi, @user, @pass, @version, @time_format, @verify_ssl)
   end
 
-  def restart_process
-   # Use Nagiosharder to exec this command (need to implement in harder)
-    `now=\`date +%s\`
-     commandfile='/usr/local/nagios/var/rw/nagios.cmd'
-     /usr/bin/printf "[%lu] RESTART_PROGRAM\n" $now > $commandfile
-    `
-  end
+  
 
 end
 
