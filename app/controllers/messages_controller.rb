@@ -3,14 +3,10 @@ class MessagesController
     messages = Message.where processed: false, instance_id: 'dev_server_1'
     messages.each do |message|
       commands = message.command.split '/'
-      self.send commands.shift, commands, message.parameters
+      model = commands.pop.classify.constantize.find message[:referenced_model_id]
+      model.send commands.pop, message.parameters
       message.update_attributes! processed: true
     end
-  end
-
-  def create *args
-    args.first[0].classify.constantize.new.create args[1]
-    # If response is successful then write config to db
   end
 
   def method_missing(meth, *args, &block)

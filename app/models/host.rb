@@ -4,7 +4,6 @@ class Host < ActiveRecord::Base
   include Nagios
 
   def create params
-    p params
     doc = "
       define host {
         use linux-server  ; Name of host template to use
