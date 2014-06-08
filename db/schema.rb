@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602052358) do
+ActiveRecord::Schema.define(version: 20140602041756) do
 
   create_table "messages", force: true do |t|
     t.string   "instance_id"
     t.string   "command"
     t.string   "parameters"
+    t.integer  "referenced_model_id"
+    t.boolean  "processed",           default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "processed",   default: false
   end
 
 end

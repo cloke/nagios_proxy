@@ -5,9 +5,7 @@ class ServicesController < ApplicationController
     
     # Using host_id as that is how the route submits.
     services = @site.host_status( params[:host_id] )#.values
-
     render json: { services: services }
-
   end
 
   def show

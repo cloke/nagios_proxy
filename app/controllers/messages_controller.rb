@@ -10,6 +10,7 @@ class MessagesController
 
   def create *args
     args.first[0].classify.constantize.new.create args[1]
+    # If response is successful then write config to db
   end
 
   def method_missing(meth, *args, &block)

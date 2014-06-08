@@ -4,7 +4,8 @@ class CreateMessages < ActiveRecord::Migration
       t.string  :instance_id
       t.string  :command
       t.string  :parameters
-
+      t.integer :referenced_model_id
+      t.boolean :processed, :default => false
       t.timestamps
     end
   end

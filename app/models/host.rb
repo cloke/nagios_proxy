@@ -1,4 +1,6 @@
-class Host
+class Host < ActiveRecord::Base
+  establish_connection :knewp_production
+
   include Nagios
 
   def create params
