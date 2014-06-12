@@ -2,14 +2,14 @@ class Service  < ActiveRecord::Base
   establish_connection :knewp_production
   include Nagios
 
-  def create params
-    case params[:name].downcase
+  def activate *params
+    case name.downcase
       when 'http'
-        write_http_service params[:host_id]
+        write_http_service host_id
       when 'ping'
-        write_ping_service params[:host_id]
+        write_ping_service host_id
     end
-    restart_process
+    restart
     params
   end
 
