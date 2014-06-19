@@ -9,7 +9,7 @@ development:
 production:
   adapter: mysql2
   database: knewp_proxy_production
-  host: localhost
+  host: 107.170.214.133
   pool: 5
   username: knewp
   password: knewp
