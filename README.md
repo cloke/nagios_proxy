@@ -19,5 +19,7 @@ NDO Utils - http://hyper-choi.blogspot.com/2012/07/monitoring-setting-up-nagois-
     broker_module=/usr/local/ndoutils-2.0.0/ndomod.o config_file=/usr/local/nagios/etc/ndomod.cfg
   - sudo cp /usr/local/ndoutils-2.0.0/daemon-init /etc/init.d/ndo2db
 
+/usr/local/nagios/var/rw/nagios.cmd fix permissions after restart of nag
+
 On-boarding
   - When a user installs the VM we will need to add a unique key to the config. The unique key will act as the instance_id in the db. All queries would be filtered on the instance_id. 
