@@ -3,7 +3,7 @@ Server configuration:
   - nginx
   - rbenv
   - ruby 2.1.1
-  - /home/rails (the default from digi ocean)
+  - /home/rails (the default from digi ocean) put at /var/www/sites
 
 NDO Utils - http://hyper-choi.blogspot.com/2012/07/monitoring-setting-up-nagois-ndoutils.html
   - sudo wget http://softlayer-dal.dl.sourceforge.net/project/nagios/ndoutils-2.x/ndoutils-2.0.0/ndoutils-2.0.0.tar.gz
@@ -18,6 +18,7 @@ NDO Utils - http://hyper-choi.blogspot.com/2012/07/monitoring-setting-up-nagois-
   - deal with broker module... make them consistent in nagios.cfg
     broker_module=/usr/local/ndoutils-2.0.0/ndomod.o config_file=/usr/local/nagios/etc/ndomod.cfg
   - sudo cp /usr/local/ndoutils-2.0.0/daemon-init /etc/init.d/ndo2db
+  - chmod 755 /etc/init.d/ndo2db
 
 /usr/local/nagios/var/rw/nagios.cmd fix permissions after restart of nag
 
